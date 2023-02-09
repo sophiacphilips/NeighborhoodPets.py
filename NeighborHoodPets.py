@@ -7,11 +7,12 @@
 
 
 
-import json
-#imports json file from gradescope
+
+
 class DuplicateNameError(Exception):
     pass
 #raises exception if a pet with the name of a pet already in the data is added
+import json
 class NeighborhoodPets:
     """
     neighborhood pets class will initialize a library of pets that will be read from a json file
@@ -49,15 +50,14 @@ class NeighborhoodPets:
         """
         saves the json file so it can be manipulated by user
         """
-        new_file = self._list_of_pets
         with open(file_name, 'w') as outfile:
-            json.dump(new_file, outfile)
+            json.dump(self._list_of_pets, outfile)
 
     def read_json(self, file_name):
         """
         reads and loads the json file so it can be used
         """
-        with open(file_name, 'r') as infile:
+        with open(file_name) as infile:
             self._list_of_pets = json.load(infile)
 
     def get_all_species(self):
@@ -67,6 +67,5 @@ class NeighborhoodPets:
         species_of_pet = set()
         for name in self._list_of_pets:
             species_of_pet.add(self._list_of_pets[name]['species'])
-
         return species_of_pet
 
