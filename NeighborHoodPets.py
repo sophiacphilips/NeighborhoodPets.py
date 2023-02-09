@@ -50,8 +50,9 @@ class NeighborhoodPets:
         """
         saves the json file so it can be manipulated by user
         """
+        self._list_of_pets = json_pet_list
         with open(file_name, 'w') as outfile:
-            json.dump(self._list_of_pets, outfile)
+            json.dump(json_pet_list, outfile)
 
     def read_json(self, file_name):
         """
