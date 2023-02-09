@@ -16,11 +16,13 @@ class NeighborhoodPets:
     """
     neighborhood pets class will initialize a library of pets that will be read from a json file
     """
-    def __init__(self):
+    def __init__(self, import_file):
         """
         initializing list of pets that will be read from json file
         """
         self._list_of_pets = {}
+        with open(import_file, 'r') as infile:  # opens json file
+            self._import_file = json.load(infile)  # loads json file
 
     def add_pet(self, name, species, owner):
         """
