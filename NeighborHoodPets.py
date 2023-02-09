@@ -16,13 +16,11 @@ class NeighborhoodPets:
     """
     neighborhood pets class will initialize a library of pets that will be read from a json file
     """
-    def __init__(self, import_file):
+    def __init__(self):
         """
         initializing list of pets that will be read from json file
         """
         self._list_of_pets = {}
-        with open(import_file, 'r') as infile:  # opens json file
-            self._import_file = json.load(infile)  # loads json file
 
     def add_pet(self, name, species, owner):
         """
@@ -51,14 +49,14 @@ class NeighborhoodPets:
         """
         saves the json file so it can be manipulated by user
         """
-        with open(file_name, 'w') as outfile:
+        with open('file_name.json', 'w') as outfile:
             json.dump(self._list_of_pets, outfile)
 
     def read_json(self, file_name):
         """
         reads and loads the json file so it can be used
         """
-        with open(file_name, 'r') as infile:
+        with open('file_name.json', 'r') as infile:
             self._list_of_pets = json.load(infile)
 
     def get_all_species(self):
