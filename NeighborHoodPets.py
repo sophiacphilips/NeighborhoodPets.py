@@ -56,7 +56,7 @@ class NeighborhoodPets:
         """
         reads and loads the json file so it can be used
         """
-        with open(file_name.json, 'r') as infile:
+        with open(file_name) as infile:
             self._list_of_pets = json.load(infile)
 
     def get_all_species(self):
